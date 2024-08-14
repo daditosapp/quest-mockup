@@ -26,25 +26,49 @@
       justify-content: center;
       align-items: center;
       padding: 0;
-      font-size: 6rem;
+      font-size: clamp(3rem, 5vw + 1rem, 6rem);
       color: rgb(103, 65, 217);
       pointer-events: none;
       user-select: none;
+      text-align: center;
       position: relative;
-      text-shadow: 0px 0px 20px rgba(103, 65, 217, 0.33); /* Sombra suave */
+      text-shadow: 0px 0px 20px rgba(103, 65, 217, 0.33);
+    }
+    h1.container span {
+      animation: scaleUp 1s cubic-bezier(1, 0, 0, 1);
     }
     h1.container p {
       font-size: 1.1rem;
       position: absolute;
       bottom: -2rem;
+      transform: translateY(33px);
+      opacity: 0;
       color: #806be9;
-      text-shadow: 0px 0px 0px rgba(103, 65, 217, 1); /* Sombra suave */
+      text-shadow: 0px 0px 0px rgba(103, 65, 217, 1);
+      animation: scaleUpP .75s cubic-bezier(0.68,-0.55,0.27,1.55) 0.75s forwards;
+    }
+    @keyframes scaleUp {
+      from {
+        transform: scale(0);
+      }
+      to {
+        transform: scale(1);
+      }
+    }
+    @keyframes scaleUpP {
+      from {
+        transform: translateY(33px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
   </style>
   <body>
     <h1 class="container">
-      Daditos Quest
-
+      <span> Daditos Quest </span>
       <p>Coming Soon</p>
     </h1>
   </body>
